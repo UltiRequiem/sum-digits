@@ -1,4 +1,5 @@
-import { isNumericSync } from "https://x.nest.land/is_numeric@0.0.1/mod.ts";
+const isNumeric = (value: string) =>
+  value.trim() !== "" && Number.isFinite(Number(value));
 
 export default function sumDigits(
   numberToSumDigits: number | string,
@@ -8,7 +9,7 @@ export default function sumDigits(
 
 export function sumDigitsSync(numberToSumDigits: number | string): number {
   if (typeof numberToSumDigits === "string") {
-    if (!isNumericSync(numberToSumDigits as string)) {
+    if (!isNumeric(numberToSumDigits as string)) {
       throw new Error(`Got ${numberToSumDigits} which is not a number!`);
     }
 
